@@ -50,5 +50,3 @@ type LanguageAction = {
 type CounterGetResponse = {
   value: number;
 };
-
-declare module 'zl-fetch';

@@ -1,17 +1,30 @@
-import {generateRNNScreens} from 'rnn-screens';
-import {gestureHandlerRootHOC as withGestureHandler} from 'react-native-gesture-handler';
+import { generateRNNScreens } from 'rnn-screens';
+import { gestureHandlerRootHOC as withGestureHandler } from 'react-native-gesture-handler';
 
-import {withStores} from '../stores';
-import {withServices, services} from '../services';
-import {withBottomTab, withRightButtons, withTitle} from '../services/navigation/options';
+import { withStores } from '../stores';
+import { withServices, services } from '../services';
+import { withBottomTab, withRightButtons, withTitle } from '../services/navigation/options';
 
-import {Main} from './main';
-import {Settings} from './settings';
-import {Example} from './screen-sample';
+import { Main } from './main';
+import { Settings } from './settings';
+import { Example } from './screen-sample';
+import { Home } from './home';
 
 // Describe your screens here
 export const screens = generateRNNScreens(
   {
+    Home: () => ({
+      component: Home,
+      options: {
+        topBar: {
+          visible: false,
+        },
+        statusBar: {
+          drawBehind: true,
+          translucent: true
+        }
+      }
+    }),
     Main: () => ({
       component: Main,
       options: {

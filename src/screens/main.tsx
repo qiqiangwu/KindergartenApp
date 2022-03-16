@@ -29,6 +29,7 @@ export const Main: ScreenComponent = observer(({ componentId }) => {
   const start = useCallback(async () => {
     try {
       await api.counter.get();
+      await api.home.fetchColumns();
     } catch (e) {
       Alert.alert('Error', 'There was a problem fetching data :(');
     }

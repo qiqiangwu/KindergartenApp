@@ -1,15 +1,27 @@
 import React from 'react';
-import {NavigationComponentProps, NavigationFunctionComponent} from 'react-native-navigation';
+import { NavigationComponentProps, NavigationFunctionComponent } from 'react-native-navigation';
 
 import './_hydration';
-import {UIStore} from './ui';
-import {CounterStore} from './counter';
+import { UIStore } from './ui';
+import { CounterStore } from './counter';
+import { HomeStore } from './home';
+
+import { spy } from 'mobx';
+import { createMobxDebugger } from 'mobx-flipper';
+import { debugMobxActions } from 'mobx-action-flipper';
+import { MMKV } from 'react-native-mmkv';
 
 export const stores = {
   ui: new UIStore(),
   counter: new CounterStore(),
+  home: new HomeStore()
 };
 type ContextStores = typeof stores;
+
+if (__DEV__) {
+  // spy(createMobxDebugger(stores));
+  // debugMobxActions({ stores }, MMKV);
+}
 
 const storeContext = React.createContext<ContextStores>(stores);
 

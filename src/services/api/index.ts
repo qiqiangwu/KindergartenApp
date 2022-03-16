@@ -1,15 +1,15 @@
-import { AumsApi } from './aums';
 import { CounterApi } from './counter';
+import { HomeApi } from './home';
 
 export class ApiService implements IService {
   private inited = false;
 
   counter: CounterApi;
-  aums: AumsApi;
+  home: HomeApi;
 
   constructor() {
     this.counter = new CounterApi();
-    this.aums = new AumsApi('http://219.233.221.231:38080');
+    this.home = new HomeApi();
   }
 
   init = async (): PVoid => {
